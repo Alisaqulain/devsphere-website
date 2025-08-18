@@ -12,10 +12,9 @@ export default function Footer() {
           </h2>
           <p className="mt-4 text-sm text-gray-600">Smart solutions for a smarter world — Web, Mobile and CRM products tailored to your business.</p>
           <div className="mt-6 flex gap-4 text-gray-500">
-            <a href="#"><FaTwitter className="hover:text-blue-600" /></a>
-            <a href="#"><FaFacebookF className="hover:text-blue-600" /></a>
-            <a href="#"><FaInstagram className="hover:text-blue-600" /></a>
-            <a href="#"><FaLinkedinIn className="hover:text-blue-600" /></a>
+
+            <a href="https://www.instagram.com/dev.spheresolutions/"><FaInstagram className="hover:text-blue-600" /></a>
+            <a href="https://www.linkedin.com/company/devspheresolutions"><FaLinkedinIn className="hover:text-blue-600" /></a>
           </div>
         </div>
 

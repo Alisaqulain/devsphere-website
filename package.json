@@ -2,11 +2,12 @@
   "name": "devsphere",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+ "scripts": {
+  "dev": "next dev",
   "build": "next build",
-  "start": "next start",
-  "export": "next build && next export"
+  "start": "next start"
 }
+
 ,
   "dependencies": {
     "framer-motion": "^12.23.12",
