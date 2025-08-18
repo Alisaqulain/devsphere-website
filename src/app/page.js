@@ -1,7 +1,8 @@
-// src/components/LandingPage.jsx
 "use client";
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { Code2, Smartphone, Boxes, PlugZap, Palette, CloudCog, ShieldCheck, LineChart, Globe, Users } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 
 // Animation variants
@@ -75,43 +76,20 @@ const AnimatedSection = ({ children, from = "left" }) => {
 };
 
 export default function LandingPage() {
+  const services = [
+    { title: "Custom Web Development", desc: "High‑performance websites and web apps built with modern stacks.", Icon: Code2 },
+    { title: "Mobile App Development", desc: "iOS/Android apps with native feel and cross‑platform speed.", Icon: Smartphone },
+    { title: "CRM Implementation", desc: "Set up, customize and integrate CRMs to your business workflows.", Icon: Boxes },
+    { title: "API & Integrations", desc: "Reliable, secure integrations with third‑party systems and services.", Icon: PlugZap },
+    { title: "UI/UX Design", desc: "User‑centred design that’s accessible, beautiful and conversion‑oriented.", Icon: Palette },
+    { title: "Cloud & DevOps", desc: "CI/CD, containerization and cloud infrastructure for scale and reliability.", Icon: CloudCog },
+    { title: "Security & QA", desc: "Best practices for auth, data protection and automated testing.", Icon: ShieldCheck },
+    { title: "Analytics & Growth", desc: "Instrumentation, dashboards and experiments to grow faster.", Icon: LineChart },
+    { title: "Globalization", desc: "i18n, localization and performance optimization for worldwide users.", Icon: Globe },
+    { title: "Team Augmentation", desc: "Senior engineers and designers embedded with your team.", Icon: Users },
+  ];
   return (
     <div className="font-sans text-gray-800 overflow-x-hidden">
-      {/* Navbar */}
-      <motion.header 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5, type: "spring" }}
-        className="w-full py-4 px-6 flex justify-between items-center shadow-sm bg-white sticky top-0 z-50"
-      >
-        <motion.h1 
-          whileHover={{ scale: 1.05 }}
-          className="text-2xl font-bold text-blue-600"
-        >
-          DevSphere Solutions
-        </motion.h1>
-        <nav className="hidden md:flex gap-6 text-gray-700">
-          {["Home", "About", "Services", "Process", "Contact"].map((item, index) => (
-            <motion.a
-              key={index}
-              href="#"
-              className="hover:text-blue-600"
-              whileHover={{ scale: 1.05, color: "#2563eb" }}
-              transition={{ duration: 0.2 }}
-            >
-              {item}
-            </motion.a>
-          ))}
-        </nav>
-        <motion.button 
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg"
-          whileHover={hoverEffect}
-          whileTap={tapEffect}
-        >
-          Get Started
-        </motion.button>
-      </motion.header>
-
       {/* Hero Section */}
       <section className="px-6 py-16 grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
         <AnimatedSection from="left">
@@ -120,16 +98,13 @@ export default function LandingPage() {
               Your Business Deserves Expert-<span className="text-blue-600">Led Growth</span>
             </h2>
             <p className="mt-4 text-gray-600">
-              Customized consulting solutions that help your business grow smarter and faster.
+              We design and build web, mobile and CRM products that help businesses launch faster,
+              scale reliably and deliver delightful user experiences.
             </p>
             <div className="mt-6 flex gap-4">
-              <motion.button 
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg"
-                whileHover={hoverEffect}
-                whileTap={tapEffect}
-              >
-                Schedule a Call
-              </motion.button>
+              <motion.div whileHover={hoverEffect} whileTap={tapEffect} className="inline-block">
+                <Link href="/contact" className="bg-blue-600 text-white px-6 py-3 rounded-lg inline-block">Schedule a Call</Link>
+              </motion.div>
               <motion.button 
                 className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg"
                 whileHover={{ 
@@ -139,7 +114,7 @@ export default function LandingPage() {
                 }}
                 whileTap={tapEffect}
               >
-                Learn More
+                <Link href="/about">Learn More</Link>
               </motion.button>
             </div>
             <div className="mt-6 flex gap-6 text-sm text-gray-500">
@@ -164,10 +139,10 @@ export default function LandingPage() {
       <section className="bg-gray-50 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            { value: "150+", label: "Projects Done" },
-            { value: "25+", label: "Industries Served" },
-            { value: "98%", label: "Client Satisfaction" },
-            { value: "$20M+", label: "Revenue Growth" }
+            { value: "60+", label: "Projects Delivered" },
+            { value: "25+", label: "Active Clients" },
+            { value: "98%", label: "Avg. CSAT Score" },
+            { value: "3+", label: "Years Building" }
           ].map((stat, i) => (
             <AnimatedSection key={i} from={i % 2 === 0 ? "left" : "right"}>
               <motion.div whileHover={{ y: -5 }}>
@@ -183,8 +158,8 @@ export default function LandingPage() {
       <section className="px-6 py-16 grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
         <AnimatedSection from="left">
           <motion.img
-            src="https://images.unsplash.com/photo-1581092334495-1c1dbdfd2d34"
-            alt="Consulting"
+            src="/about.png"
+            alt="About Us - Product Engineering. Real Results."
             className="rounded-2xl shadow-lg"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
@@ -194,17 +169,13 @@ export default function LandingPage() {
         <AnimatedSection from="right">
           <div>
             <h4 className="text-blue-600 font-semibold">About Us</h4>
-            <h2 className="text-3xl font-bold mt-2">Customized Consulting. Real Results.</h2>
+            <h2 className="text-3xl font-bold mt-2">Product Engineering. Real Results.</h2>
             <p className="mt-4 text-gray-600">
               We provide tailored strategies that empower your business to adapt and thrive in a rapidly changing market.
             </p>
-            <motion.button 
-              className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg"
-              whileHover={hoverEffect}
-              whileTap={tapEffect}
-            >
-              Learn More
-            </motion.button>
+            <motion.div whileHover={hoverEffect} whileTap={tapEffect} className="mt-6 inline-block">
+              <Link className="bg-blue-600 text-white px-6 py-3 rounded-lg inline-block" href="/about">Learn More</Link>
+            </motion.div>
           </div>
         </AnimatedSection>
       </section>
@@ -216,28 +187,25 @@ export default function LandingPage() {
             <h2 className="text-3xl font-bold">What We Can Do for You</h2>
           </AnimatedSection>
           
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              "Strategy Consulting",
-              "Operational Excellence",
-              "Digital Transformation",
-              "Research & Analysis",
-              "IT Consulting",
-              "Talent Development",
-            ].map((service, i) => (
-              <AnimatedSection 
-                key={i} 
-                from={i % 2 === 0 ? "left" : "right"}
-              >
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {services.map((s, i) => (
+              <AnimatedSection key={s.title} from={i % 2 === 0 ? "left" : "right"}>
                 <motion.div
-                  className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
-                  whileHover={{ 
-                    y: -5,
-                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
-                  }}
-                  transition={{ duration: 0.3 }}
+                  className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition group"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  whileHover={{ y: -6 }}
                 >
-                  <h3 className="font-semibold">{service}</h3>
+                  <div className="flex items-start gap-4">
+                    <div className="rounded-lg bg-blue-50 text-blue-600 p-3 shrink-0">
+                      <s.Icon className="w-6 h-6" />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="font-semibold text-gray-900">{s.title}</h3>
+                      <p className="text-gray-600 text-sm mt-2">{s.desc}</p>
+                    </div>
+                  </div>
                 </motion.div>
               </AnimatedSection>
             ))}
@@ -288,15 +256,11 @@ export default function LandingPage() {
                 Build Your <span className="text-blue-600">Future</span> with Us
               </h2>
               <p className="mt-4 text-gray-600">
-                We provide solutions that help your business grow faster.
+                Let’s build the next version of your product together — faster, better and scalable.
               </p>
-              <motion.button 
-                className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-                whileHover={hoverEffect}
-                whileTap={tapEffect}
-              >
-                Get Started
-              </motion.button>
+              <motion.div whileHover={hoverEffect} whileTap={tapEffect} className="mt-6 inline-block">
+                <Link href="/contact" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 inline-block">Get Started</Link>
+              </motion.div>
             </div>
           </AnimatedSection>
           
@@ -316,12 +280,16 @@ export default function LandingPage() {
       <section className="container mx-auto py-16 px-6">
         <AnimatedSection from="left">
           <h3 className="text-center text-3xl font-bold text-gray-900">
-            The Strategies of Our Work
+            How We Work
           </h3>
         </AnimatedSection>
         
         <div className="mt-10 grid md:grid-cols-3 gap-8">
-          {["Strategy", "Design", "Development"].map((item, i) => (
+          {[
+            { title: "Strategy", desc: "We align product goals with business outcomes and define a clear roadmap." },
+            { title: "Design", desc: "We craft user-centric interfaces and flows that are simple, accessible and beautiful." },
+            { title: "Engineering", desc: "We ship robust, scalable software using modern stacks and best practices." }
+          ].map((feature, i) => (
             <AnimatedSection 
               key={i}
               from={i === 1 ? "right" : "left"}
@@ -333,10 +301,8 @@ export default function LandingPage() {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
                 }}
               >
-                <h4 className="text-xl font-semibold text-blue-600">{item}</h4>
-                <p className="mt-3 text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
+                <h4 className="text-xl font-semibold text-blue-600">{feature.title}</h4>
+                <p className="mt-3 text-gray-600">{feature.desc}</p>
               </motion.div>
             </AnimatedSection>
           ))}
@@ -354,12 +320,12 @@ export default function LandingPage() {
         <div className="mt-10 grid md:grid-cols-2 gap-8 container mx-auto">
           {[
             {
-              quote: "Amazing service! Helped our business grow exponentially.",
-              author: "John Doe"
+              quote: "DevSphere helped us launch our MVP in 8 weeks and scale to our first 10k users.",
+              author: "Amit Verma, Founder — BrightCart"
             },
             {
-              quote: "Professional and dedicated team. Highly recommend.",
-              author: "Sarah Smith"
+              quote: "Clean architecture, great communication and on-time delivery. Exactly what we needed.",
+              author: "Neha Sharma, Product Lead — FinEdge"
             }
           ].map((testimonial, i) => (
             <AnimatedSection 
@@ -373,8 +339,8 @@ export default function LandingPage() {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
                 }}
               >
-                <p className="text-gray-600">"{testimonial.quote}"</p>
-                <h4 className="mt-4 font-bold">- {testimonial.author}</h4>
+<p className="text-gray-600">&quot;{testimonial.quote}&quot;</p>
+<h4 className="mt-4 font-bold">- {testimonial.author}</h4>
               </motion.div>
             </AnimatedSection>
           ))}
@@ -390,7 +356,11 @@ export default function LandingPage() {
         </AnimatedSection>
         
         <div className="mt-10 grid md:grid-cols-3 gap-8">
-          {["Basic", "Pro", "Enterprise"].map((plan, i) => (
+          {[
+            { name: "MVP", price: "From ₹75k" },
+            { name: "Growth", price: "From ₹2.5L" },
+            { name: "Scale", price: "Custom quote" }
+          ].map((plan, i) => (
             <AnimatedSection 
               key={i}
               from={i === 1 ? "right" : "left"}
@@ -403,8 +373,8 @@ export default function LandingPage() {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
                 }}
               >
-                <h4 className="text-xl font-semibold">{plan}</h4>
-                <p className="mt-2 text-gray-600">$29/month</p>
+                <h4 className="text-xl font-semibold">{plan.name}</h4>
+                <p className="mt-2 text-gray-600">{plan.price}</p>
                 <motion.button 
                   className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                   whileHover={{ scale: 1.05 }}
@@ -427,28 +397,22 @@ export default function LandingPage() {
         </AnimatedSection>
         
         <div className="mt-10 max-w-2xl mx-auto space-y-4">
-          {["How does it work?", "What is included?", "Can I cancel?"].map(
-            (q, i) => (
-              <AnimatedSection 
-                key={i}
-                from={i % 2 === 0 ? "left" : "right"}
+          {[
+            { q: "What services do you offer?", a: "Custom web and mobile development, CRM implementation, UI/UX, APIs, cloud and DevOps." },
+            { q: "What is your typical timeline?", a: "MVPs in 6–10 weeks. Larger builds are broken into milestones with fortnightly releases." },
+            { q: "How do we start?", a: "Share your goals on the contact page. We’ll schedule a discovery call and send a proposal." }
+          ].map((item, i) => (
+            <AnimatedSection key={i} from={i % 2 === 0 ? "left" : "right"}>
+              <motion.div
+                className="p-4 bg-white shadow rounded-lg hover:shadow-lg transition cursor-pointer"
+                whileHover={{ y: -2, backgroundColor: "#f8fafc" }}
+                whileTap={{ scale: 0.98 }}
               >
-                <motion.div
-                  className="p-4 bg-white shadow rounded-lg hover:shadow-lg transition cursor-pointer"
-                  whileHover={{ 
-                    y: -2,
-                    backgroundColor: "#f8fafc"
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <h4 className="font-semibold text-gray-800">{q}</h4>
-                  <p className="text-gray-600 mt-2">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </motion.div>
-              </AnimatedSection>
-            )
-          )}
+                <h4 className="font-semibold text-gray-800">{item.q}</h4>
+                <p className="text-gray-600 mt-2">{item.a}</p>
+              </motion.div>
+            </AnimatedSection>
+          ))}
         </div>
       </section>
 
@@ -497,33 +461,23 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-blue-600 text-white py-16 text-center">
+      <section className="text-white py-16 text-center cta-gradient relative overflow-hidden">
         <AnimatedSection from="left">
-          <h3 className="text-3xl font-bold">
+          <h3 className="text-3xl md:text-4xl font-bold">
             Ready to Take Your Business to the Next Level?
           </h3>
+          <p className="mt-3 text-blue-100 max-w-2xl mx-auto px-6">
+            Partner with DevSphere to design, build and scale world‑class digital products.
+          </p>
         </AnimatedSection>
-        
         <AnimatedSection from="right">
-          <motion.button 
-            className="mt-6 px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-200"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact Us
-          </motion.button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="mt-8 inline-block">
+            <Link href="/contact" className="px-8 py-3 rounded-xl font-semibold btn-smart inline-block">
+              Let’s Talk
+            </Link>
+          </motion.div>
         </AnimatedSection>
       </section>
-
-      {/* Footer */}
-      <motion.footer 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="bg-blue-600 text-white py-6 text-center"
-      >
-        <p>© 2025 DevSphere Solutions. All rights reserved.</p>
-      </motion.footer>
     </div>
   );
 }

@@ -1,24 +1,26 @@
-// src/components/About.jsx
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-gray-50 px-6 py-12">
       <div className="max-w-6xl mx-auto">
+        {/* SEO for this page */}
+        {/* Next 15 supports export const metadata in route file, but for brevity we rely on global metadata. */}
         {/* Hero Section */}
-        <div className="text-center mb-12">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">About Us</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            We are a product-based company specializing in **Web Development,
-            Mobile Apps, and CRM Solutions**. Our mission is to create powerful
-            digital products that simplify business processes and help
-            organizations scale faster.
+            DevSphere Solutions is a product engineering studio. We craft web, mobile and CRM
+            products that automate workflows, improve customer experience and accelerate growth.
+            Our team blends strategy, design and engineering to deliver measurable business value.
           </p>
-        </div>
+        </motion.div>
 
         {/* Mission & Vision */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition">
+          <motion.div whileHover={{ y: -4 }} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               Our Mission
             </h2>
@@ -27,9 +29,9 @@ export default function About() {
               real-world problems, empower businesses, and enhance customer
               experiences with innovation and technology.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition">
+          <motion.div whileHover={{ y: -4 }} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">
               Our Vision
             </h2>
@@ -38,27 +40,27 @@ export default function About() {
               drives digital transformation and sets new standards for
               innovation, quality, and customer satisfaction.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Company Stats */}
         <div className="grid md:grid-cols-4 gap-8 text-center mb-16">
-          <div className="bg-white p-6 rounded-2xl shadow-md">
+          <motion.div whileHover={{ y: -4 }} className="bg-white p-6 rounded-2xl shadow-md">
             <h3 className="text-3xl font-bold text-blue-600">50+</h3>
             <p className="text-gray-600 mt-2">Projects Delivered</p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-md">
+          </motion.div>
+          <motion.div whileHover={{ y: -4 }} className="bg-white p-6 rounded-2xl shadow-md">
             <h3 className="text-3xl font-bold text-blue-600">20+</h3>
             <p className="text-gray-600 mt-2">Happy Clients</p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-md">
+          </motion.div>
+          <motion.div whileHover={{ y: -4 }} className="bg-white p-6 rounded-2xl shadow-md">
             <h3 className="text-3xl font-bold text-blue-600">10+</h3>
             <p className="text-gray-600 mt-2">Products Launched</p>
-          </div>
-          <div className="bg-white p-6 rounded-2xl shadow-md">
+          </motion.div>
+          <motion.div whileHover={{ y: -4 }} className="bg-white p-6 rounded-2xl shadow-md">
             <h3 className="text-3xl font-bold text-blue-600">5+</h3>
             <p className="text-gray-600 mt-2">Years Experience</p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Our Team */}

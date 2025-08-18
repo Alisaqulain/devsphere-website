@@ -1,17 +1,17 @@
-// src/components/Contact.jsx
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
-      <div className="max-w-4xl w-full bg-white shadow-lg rounded-2xl p-8 md:p-12">
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="max-w-4xl w-full bg-white shadow-lg rounded-2xl p-8 md:p-12">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">
           Contact Us
         </h2>
         <p className="text-gray-600 mb-8 text-center">
-          Have questions? We’d love to hear from you. Fill out the form below
-          and we’ll get back to you soon.
+          Have a project in mind? Tell us about your goals and we’ll respond within 1–2 business days.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -50,10 +50,7 @@ export default function Contact() {
               ></textarea>
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition duration-300"
-            >
+            <button type="submit" className="w-full bg-blue-600 text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition duration-300">
               Send Message
             </button>
           </form>
@@ -71,7 +68,7 @@ export default function Contact() {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Email
               </h3>
-              <p className="text-gray-600">info@devspheresolutions.in</p>
+              <a className="text-blue-600 hover:underline" href="mailto:info@devspheresolutions.in">info@devspheresolutions.in</a>
              
             </div>
 
@@ -79,11 +76,15 @@ export default function Contact() {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Phone
               </h3>
-              <p className="text-gray-600">+91 9457818861  +91 9389441961</p>
+              <p className="text-gray-600">
+                <a className="hover:underline" href="tel:+919457818861">+91 9457818861</a>
+                &nbsp;  &nbsp;
+                <a className="hover:underline" href="tel:+919389441961">+91 9389441961</a>
+              </p>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
