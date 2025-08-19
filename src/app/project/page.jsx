@@ -22,16 +22,22 @@ export default function Projects() {
     },
     {
       id: 3,
-      title: "E‑Commerce Platform",
+      title: "Laptop Secure",
       description:
-        "Headless commerce with product catalog, checkout, and Stripe payments.",
-   
-        image:
-"/ecoomerce.png",
-        demo: "#",
+        "A platform to sell old laptops safely, efficiently, and at the best prices.",
+      image: "/l.png", // make sure this image is in your public folder
+      demo: "https://laptopsecure.in/",
     },
     {
       id: 4,
+      title: "E‑Commerce Platform",
+      description:
+        "Headless commerce with product catalog, checkout, and Stripe payments.",
+      image: "/ecoomerce.png",
+      demo: "#",
+    },
+    {
+      id: 5,
       title: "Realtime Chat",
       description:
         "WebSockets-based chat with presence, typing indicators and file sharing.",
@@ -39,7 +45,7 @@ export default function Projects() {
       demo: "#",
     },
     {
-      id: 5,
+      id: 6,
       title: "Typing Tutor",
       description:
         "Interactive typing app with WPM tracking, accuracy and practice modes.",
@@ -82,7 +88,6 @@ export default function Projects() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6 flex flex-col justify-between h-48">
-
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">
                   {project.title}
                 </h3>
