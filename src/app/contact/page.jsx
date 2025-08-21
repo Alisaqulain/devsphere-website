@@ -1,9 +1,19 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import SEOHead, { buildLocalBusinessJsonLd } from "../components/SEOHead";
 
 export default function Contact() {
   return (
+    <>
+    <SEOHead
+      title="Contact DevSphere Solutions"
+      description="Get in touch for web, mobile and CRM solutions. Based in Muzaffarnagar, Uttar Pradesh."
+      url="https://devspheresolutions.in/contact"
+      canonical="https://devspheresolutions.in/contact"
+      image="https://devspheresolutions.in/logo.png"
+      jsonLd={[buildLocalBusinessJsonLd()]}
+    />
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="max-w-4xl w-full bg-white shadow-lg rounded-2xl p-8 md:p-12">
         {/* Heading */}
@@ -86,5 +96,6 @@ export default function Contact() {
         </div>
       </motion.div>
     </div>
+    </>
   );
 }

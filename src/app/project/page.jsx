@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import SEOHead from "../components/SEOHead";
 
 export default function Projects() {
+  const base = "https://devspheresolutions.in";
   const projects = [
     {
       id: 1,
@@ -55,6 +57,14 @@ export default function Projects() {
   ];
 
   return (
+    <>
+    <SEOHead
+      title="Client Work & Projects | DevSphere Solutions"
+      description="A selection of product builds across SaaS, e‑commerce, platforms and more."
+      url={`${base}/project`}
+      canonical={`${base}/project`}
+      image={`${base}/logo.png`}
+    />
     <div className="min-h-screen bg-gray-50 py-12 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
@@ -100,5 +110,6 @@ export default function Projects() {
         </div>
       </div>
     </div>
+    </>
   );
 }

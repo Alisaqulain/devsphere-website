@@ -1,9 +1,19 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import SEOHead, { buildOrganizationJsonLd } from "../components/SEOHead";
 
 export default function About() {
   return (
+    <>
+    <SEOHead
+      title="About DevSphere Solutions"
+      description="DevSphere is a product engineering studio building web, mobile and CRM products."
+      url="https://devspheresolutions.in/about"
+      canonical="https://devspheresolutions.in/about"
+      image="https://devspheresolutions.in/logo.png"
+      jsonLd={[buildOrganizationJsonLd()]}
+    />
     <div className="min-h-screen bg-gray-50 px-6 py-12">
       <div className="max-w-6xl mx-auto">
         {/* SEO for this page */}
@@ -104,5 +114,6 @@ export default function About() {
         </div> */}
       </div>
     </div>
+    </>
   );
 }

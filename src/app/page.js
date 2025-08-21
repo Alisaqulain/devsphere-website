@@ -2,8 +2,10 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Code2, Smartphone, Boxes, PlugZap, Palette, CloudCog, ShieldCheck, LineChart, Globe, Users } from "lucide-react";
 import { useInView } from "react-intersection-observer";
+import SEOHead, { buildOrganizationJsonLd, buildLocalBusinessJsonLd, buildFaqJsonLd } from "./components/SEOHead";
 
 // Animation variants
 const containerVariants = {
@@ -76,6 +78,7 @@ const AnimatedSection = ({ children, from = "left" }) => {
 };
 
 export default function LandingPage() {
+  const base = "https://devspheresolutions.in";
   const services = [
     { title: "Custom Web Development", desc: "High‑performance websites and web apps built with modern stacks.", Icon: Code2 },
     { title: "Mobile App Development", desc: "iOS/Android apps with native feel and cross‑platform speed.", Icon: Smartphone },
@@ -89,6 +92,24 @@ export default function LandingPage() {
     { title: "Team Augmentation", desc: "Senior engineers and designers embedded with your team.", Icon: Users },
   ];
   return (
+    <>
+    <SEOHead
+      title="Web, Mobile & CRM Product Engineering | DevSphere Solutions"
+      description="We design and build high‑quality websites, mobile apps and CRM products for startups and enterprises."
+      keywords="web development company in India, CRM development solutions, custom software Uttar Pradesh, mobile app development services India, DevOps cloud solutions for startups"
+      url={`${base}/`}
+      canonical={`${base}/`}
+      image={`${base}/logo.png`}
+      type="website"
+      jsonLd={[
+        buildOrganizationJsonLd({ url: base, logo: `${base}/logo.png` }),
+        buildLocalBusinessJsonLd({ url: base }),
+        buildFaqJsonLd([
+          { q: "What services do you offer?", a: "Web, mobile, CRM, APIs, UI/UX, cloud and DevOps." },
+          { q: "Typical timeline?", a: "MVPs in 6–10 weeks; larger builds delivered in milestones." },
+        ]),
+      ]}
+    />
     <div className="font-sans text-gray-800 overflow-x-hidden">
       {/* Hero Section */}
       <section className="px-6 py-16 grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
@@ -157,13 +178,9 @@ export default function LandingPage() {
       {/* Consulting Section */}
       <section className="px-6 py-16 grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
         <AnimatedSection from="left">
-          <motion.img
-            src="/about.png"
-            alt="About Us - Product Engineering. Real Results."
-            className="rounded-2xl shadow-lg"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          />
+          <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }} className="rounded-2xl shadow-lg overflow-hidden">
+            <Image src="/about.png" alt="About Us - Product Engineering. Real Results." width={960} height={720} loading="lazy" className="w-full h-auto" />
+          </motion.div>
         </AnimatedSection>
         
         <AnimatedSection from="right">
@@ -479,5 +496,6 @@ export default function LandingPage() {
         </AnimatedSection>
       </section>
     </div>
+    </>
   );
 }

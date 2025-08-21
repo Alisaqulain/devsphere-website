@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ClientWrapper from "./ClientWrapper";
 import Script from "next/script";
+import Head from "next/head";
 
 export const metadata = {
   metadataBase: new URL("https://devspheresolutions.in"),
@@ -62,6 +63,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      </Head>
       <body>
         <Header />
         <ClientWrapper>{children}</ClientWrapper>
@@ -72,7 +79,7 @@ export default function RootLayout({ children }) {
             "@type": "Organization",
             name: "DevSphere Solutions",
             url: "https://devspheresolutions.in",
-            logo: "https://devspheresolutions.in/logo.jpg",
+            logo: "https://devspheresolutions.in/logo.png",
             sameAs: [
               "https://www.linkedin.com/",
               "https://twitter.com/"
