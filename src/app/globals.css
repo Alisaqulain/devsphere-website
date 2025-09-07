@@ -42,3 +42,33 @@ a { color: inherit; }
   transform: translateY(-1px);
   box-shadow: 0 16px 40px -12px rgba(37, 99, 235, 0.7);
 }
+
+/* Smooth scrolling and motion preferences */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Card hover utility */
+.card-hover {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -12px rgba(0,0,0,0.15);
+}
+
+/* Site-wide modern background */
+.site-bg {
+  background: radial-gradient(1200px 600px at -10% -10%, rgba(59,130,246,0.15), transparent 60%),
+              radial-gradient(1000px 500px at 110% 10%, rgba(99,102,241,0.15), transparent 60%),
+              linear-gradient(180deg, #f8fafc 0%, #ffffff 60%);
+}
+
+/* Glass/blur utility for header */
+.glass {
+  background-color: rgba(255,255,255,0.65);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid rgba(148,163,184,0.25);
+}

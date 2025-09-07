@@ -5,13 +5,24 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useEffect } from "react";
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/case-studies", label: "Case Studies" },
+    { href: "/blog", label: "Blog" },
     { href: "/project", label: "Projects" },
     { href: "/contact", label: "Contact" }
   ];
@@ -21,7 +32,7 @@ export default function Header() {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="w-full py-4 px-6 flex justify-between items-center shadow-sm bg-white sticky top-0 z-50"
+      className={(scrolled ? "glass shadow-sm " : "bg-transparent ") + "w-full py-4 px-6 flex justify-between items-center sticky top-0 z-50"}
     >
       <Link href="/" className="flex items-center gap-3">
         <Image src="/logo.jpg" alt="DevSphere Solutions logo" width={40} height={40} className="rounded" />
@@ -50,8 +61,11 @@ export default function Header() {
 
       {/* CTA button on desktop */}
       <div className="hidden md:block">
-        <Link href="/contact" className="bg-brand text-white px-4 py-2 rounded-lg">
-          <motion.span whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>Get Started</motion.span>
+        <Link href="/contact" className="px-4 py-2 rounded-lg text-white" style={{
+          background: "linear-gradient(90deg, #3b82f6, #8b5cf6)",
+          boxShadow: "0 10px 25px -10px rgba(59,130,246,0.6)"
+        }}>
+          <motion.span whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>Get a Quote</motion.span>
         </Link>
       </div>
 
@@ -70,7 +84,7 @@ export default function Header() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="absolute left-0 top-full w-full bg-white border-t border-gray-200 shadow-md md:hidden"
+          className="absolute left-0 top-full w-full glass border-t border-gray-200 shadow-md md:hidden"
         >
           <ul className="py-3 px-4 space-y-2">
             {navItems.map((item) => {
