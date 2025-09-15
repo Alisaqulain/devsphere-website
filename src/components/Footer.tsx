@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Instagram, Linkedin, Twitter } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -35,15 +35,6 @@ export default function Footer() {
               className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:border-primary hover:bg-primary/10 transition-colors"
             >
               <Linkedin className="w-5 h-5 text-white" />
-            </motion.a>
-            <motion.a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2 }}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:border-primary hover:bg-primary/10 transition-colors"
-            >
-              <Twitter className="w-5 h-5 text-white" />
             </motion.a>
           </div>
         </div>
