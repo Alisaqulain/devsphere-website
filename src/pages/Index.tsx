@@ -1,17 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Highlights from "@/components/HowDeleverExcelence";
-import Process from "@/components/Process";
-import WhyChoose from "@/components/WhyChoose";
-import Services from "@/components/Services";
 import Stats from "@/components/Stats";
+import Services from "@/components/Services";
+import FlagshipProjects from "@/components/FlagshipProjects";
 import WhoWeAre from "@/components/WhoWeAre";
+import WhyChoose from "@/components/WhyChoose";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
-import PricingPlans from "@/components/PricingPlans";
-import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import { Routes } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -20,16 +16,13 @@ const Index = () => {
       <main>
         <Hero />
         <Stats />
-        <WhoWeAre />
         <Services />
+        <FlagshipProjects />
         <WhyChoose />
-        <Highlights />
-        <Process />
-        <TestimonialsCarousel/>
-        <PricingPlans/>
-        <FAQ/>
-        <CTA/>
-        <Footer/>
+        <TestimonialsCarousel />
+        <WhoWeAre />
+        <CTA />
+        <Footer />
       </main>
     </div>
   );

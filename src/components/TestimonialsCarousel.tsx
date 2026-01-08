@@ -6,34 +6,52 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
 	{
-		name: "Amit Verma",
-		role: "Founder — BrightCart",
+		name: "Ahmed Al-Mansoori",
+		company: "Vega Wealth",
+		role: "Chief Executive Officer",
+		location: "Dubai, UAE",
 		feedback:
-			"DevSphere transformed our vision into a scalable MVP in just 8 weeks, exceeding our expectations.",
+			"DevsSphere Solutions delivered a world-class platform that transformed our client engagement. Their strategic approach, attention to detail, and commitment to excellence exceeded our expectations. A truly professional partnership.",
 	},
 	{
-		name: "Neha Sharma",
-		role: "Product Lead — FinEdge",
+		name: "Rajesh Kumar",
+		company: "Krishi Kutumb",
+		role: "Founder & Managing Director",
+		location: "India",
 		feedback:
-			"Their team delivered clean code and seamless communication, making our project a success.",
+			"Working with DevsSphere has been exceptional. They understood our business needs from day one and delivered a solution that has significantly improved our operational efficiency. Professional communication and on-time delivery throughout.",
 	},
 	{
-		name: "Rahul Patel",
-		role: "CTO — TechTrend",
+		name: "Sarah Mitchell",
+		company: "Auto Excel Pro",
+		role: "Operations Director",
+		location: "Global",
 		feedback:
-			"The UI/UX design and cloud integration were top-notch, driving our user engagement.",
+			"DevsSphere Solutions transformed our business operations with their comprehensive platform. The results speak for themselves — increased efficiency, better customer relationships, and measurable growth. Highly recommended.",
 	},
 	{
-		name: "Ali",
-		role: "Laptop Secure",
+		name: "Mohammed Hassan",
+		company: "Dunex Dubai",
+		role: "Business Development Manager",
+		location: "Dubai, UAE",
 		feedback:
-			"Ali ensured our laptops and systems were completely secure, giving us peace of mind for our business operations.",
+			"Outstanding service and delivery. DevsSphere Solutions demonstrated deep understanding of our market and delivered a solution that has become central to our business success. Reliable, professional, and results-driven.",
 	},
 	{
-		name: "Shazy Zaidi",
-		role: "The Accessory Center",
+		name: "Priya Sharma",
+		company: "The Accessory Center MZN",
+		role: "E-Commerce Director",
+		location: "India",
 		feedback:
-			"DevSphere guided us in creating a seamless online presence, driving more sales and engagement.",
+			"Our e-commerce platform has exceeded all expectations. DevsSphere Solutions created a seamless experience that has driven significant sales growth. Their team is responsive, professional, and truly understands business objectives.",
+	},
+	{
+		name: "Dr. James Wilson",
+		company: "MPCPCT",
+		role: "Chief Technology Officer",
+		location: "Global",
+		feedback:
+			"DevsSphere Solutions delivered a robust healthcare technology platform that has enhanced our patient care capabilities. Their expertise, reliability, and commitment to quality make them an ideal long-term technology partner.",
 	},
 ];
 
@@ -56,13 +74,13 @@ export default function TestimonialsCarousel() {
 
 			<div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
 				{/* Section Header */}
-				<div className="text-center mb-8 sm:mb-12">
-					<h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-2 sm:mb-4">
-						What Our{" "}
-						<span className="text-gradient">Clients Say</span>
+				<div className="text-center mb-12 sm:mb-16">
+					<h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
+						Trusted by Business
+						<span className="text-gradient"> Leaders</span>
 					</h2>
-					<p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-						Stories of innovation, trust, and success shared by our partners
+					<p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+						Real feedback from executives and decision-makers who have partnered with us for long-term success
 					</p>
 				</div>
 
@@ -87,21 +105,24 @@ export default function TestimonialsCarousel() {
 									<Quote className="h-6 w-6 sm:h-7 sm:w-7 text-primary/30 mb-2 sm:mb-3" />
 
 									{/* Feedback */}
-									<p className="text-sm sm:text-base md:text-lg italic text-muted-foreground mb-3 sm:mb-5 leading-relaxed flex-1">
-										“{t.feedback}”
+									<p className="text-base sm:text-lg md:text-xl text-foreground mb-4 sm:mb-6 leading-relaxed flex-1">
+										"{t.feedback}"
 									</p>
 
 									{/* Client Info */}
-									<div className="flex items-center gap-3 sm:gap-4 mt-2">
-										<div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-accent text-white font-bold text-lg sm:text-xl">
+									<div className="flex items-center gap-3 sm:gap-4 mt-4 pt-4 border-t border-white/10">
+										<div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-accent text-white font-bold text-lg sm:text-xl flex-shrink-0">
 											{t.name.charAt(0)}
 										</div>
-										<div>
-											<span className="block font-semibold text-foreground text-sm sm:text-base">
+										<div className="flex-1 min-w-0">
+											<span className="block font-semibold text-foreground text-base sm:text-lg">
 												{t.name}
 											</span>
-											<span className="block text-xs sm:text-sm text-muted-foreground">
+											<span className="block text-sm sm:text-base text-primary font-medium">
 												{t.role}
+											</span>
+											<span className="block text-xs sm:text-sm text-muted-foreground">
+												{t.company} • {t.location}
 											</span>
 										</div>
 									</div>

@@ -129,7 +129,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="mt-12 pt-6 border-t border-white/10 text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} DevSphere Solutions. All rights reserved.
+        © 2026 DevSphere Solutions. All rights reserved.
       </div>
     </footer>
   );

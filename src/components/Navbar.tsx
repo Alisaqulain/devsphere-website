@@ -11,7 +11,8 @@ import {
   Code, 
   Mail,
   Menu,
-  X
+  X,
+  Globe
 } from "lucide-react";
 
 const navItems = [
@@ -32,11 +33,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-gradient">
-              DevSphere Solutions
-            </h1>
-          </div>
+          <Link to="/" className="flex-shrink-0 flex items-center gap-2 group">
+            <span className="text-xl sm:text-2xl font-extrabold text-gradient tracking-tight hidden sm:inline-block">
+              <Globe className="inline-block h-5 w-5 mr-1.5 text-primary" />
+              DevsSphere
+            </span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
@@ -58,8 +60,8 @@ export default function Navbar() {
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
             <Link to="/contact">
-              <Button variant="cta" className="animate-glow-pulse">
-                Get a Quote
+              <Button variant="cta" size="lg" className="px-6 py-2.5 font-semibold">
+                Start Your Project
               </Button>
             </Link>
           </div>
@@ -98,8 +100,8 @@ export default function Navbar() {
             })}
             <div className="pt-2">
               <Link to="/contact">
-                <Button variant="cta" className="w-full">
-                  Get a Quote
+                <Button variant="cta" size="lg" className="w-full font-semibold">
+                  Start Your Project
                 </Button>
               </Link>
             </div>

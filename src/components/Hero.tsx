@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, CheckCircle, Zap } from "lucide-react";
+import { ArrowRight, Globe, TrendingUp, Shield } from "lucide-react";
 import heroIllustration from "@/assets/hero-illustration.jpg";
-import { motion, easeInOut } from "framer-motion"; // <-- import easeInOut
+import { motion, easeInOut } from "framer-motion";
 import { Link } from "react-router-dom";
 
 // Animation Variants
@@ -16,7 +16,7 @@ const float = {
     transition: {
       duration: 4,
       repeat: Infinity,
-      ease: easeInOut, // <-- use imported easeInOut
+      ease: easeInOut,
     },
   },
 };
@@ -48,59 +48,66 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-2 sm:px-4 pt-16 sm:pt-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 items-center">
 
           {/* Content Section */}
           <motion.div
-            className="text-center lg:text-left space-y-4 sm:space-y-6"
+            className="text-center lg:text-left space-y-6 sm:space-y-8"
             initial="hidden"
             animate="visible"
             variants={fadeIn}
             transition={{ delay: 0.2, duration: 1, ease: easeInOut }}
           >
-            <div className="space-y-2 sm:space-y-4">
-              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Crafting{" "}
-                <span className="text-gradient bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Next-Gen
-                </span>
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight tracking-tight">
+                Transform Your Business
                 <br />
-                Digital Experiences
+                <span className="text-gradient bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Globally
+                </span>
               </h1>
-              <p className="text-sm xs:text-base sm:text-lg md:text-2xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
-                We empower startups and enterprises with innovative websites, apps, and platforms 
-                that drive growth and scalability.
+              <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
+                Trusted by international businesses to deliver digital solutions that drive growth, 
+                scale operations, and create lasting competitive advantage.
               </p>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-              <Link to="/services" className="w-full sm:w-auto">
-                <Button variant="hero" size="lg" className="group w-full sm:w-auto">
-                  Discover Our Services
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start pt-4">
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button variant="hero" size="lg" className="group w-full sm:w-auto text-lg px-8 py-6 h-auto">
+                  Start Your Project
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
 
-              <Link to="/contact" className="w-full sm:w-auto">
-                <Button variant="glass" size="lg" className="group w-full sm:w-auto">
-                  <Play className="mr-2 h-5 w-5" />
-                  Get in Touch
+              <Link to="/projects" className="w-full sm:w-auto">
+                <Button variant="glass" size="lg" className="group w-full sm:w-auto text-lg px-8 py-6 h-auto">
+                  View Our Work
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
             </div>
 
             {/* Trust Badges */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 pt-0 justify-center lg:justify-start">
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                <CheckCircle className="h-5 w-5 text-primary" />
-                <span className="font-semibold text-foreground">200+</span> Successful Projects
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 pt-6 justify-center lg:justify-start">
+              <div className="flex items-center gap-3 text-sm sm:text-base text-muted-foreground">
+                <Globe className="h-6 w-6 text-primary" />
+                <span className="font-semibold text-foreground">Global Reach</span>
+                <span className="text-muted-foreground">Across 15+ Countries</span>
               </div>
-              <div className="hidden sm:block w-px h-6 bg-border" />
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-                <Zap className="h-5 w-5 text-accent" />
-                <span className="font-semibold text-foreground">Agile</span> Delivery
+              <div className="hidden sm:block w-px h-8 bg-border" />
+              <div className="flex items-center gap-3 text-sm sm:text-base text-muted-foreground">
+                <TrendingUp className="h-6 w-6 text-accent" />
+                <span className="font-semibold text-foreground">Enterprise-Grade</span>
+                <span className="text-muted-foreground">Solutions</span>
+              </div>
+              <div className="hidden sm:block w-px h-8 bg-border" />
+              <div className="flex items-center gap-3 text-sm sm:text-base text-muted-foreground">
+                <Shield className="h-6 w-6 text-primary" />
+                <span className="font-semibold text-foreground">Trusted Partner</span>
+                <span className="text-muted-foreground">Long-Term Success</span>
               </div>
             </div>
           </motion.div>
@@ -126,7 +133,7 @@ export default function Hero() {
               <motion.img
                 loading="lazy"
                 src={heroIllustration}
-                alt="Team working on innovative digital projects"
+                alt="Global digital transformation and business growth"
                 className="relative rounded-2xl shadow-2xl hover-lift border border-primary/20 w-full"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}

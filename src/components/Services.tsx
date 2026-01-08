@@ -26,74 +26,46 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    icon: Code,
-    title: "Custom Web Development",
+    icon: Globe,
+    title: "Digital Platform Development",
     description:
-      "High-performance websites and web apps built with modern frameworks like Next.js, React, and Node.js.",
+      "Enterprise-grade web platforms that scale with your business, drive customer engagement, and deliver measurable ROI.",
     gradient: "from-primary to-tech-violet",
   },
   {
     icon: Smartphone,
-    title: "Mobile App Development",
+    title: "Mobile Business Solutions",
     description:
-      "Native and cross-platform iOS/Android apps with Flutter or React Native for seamless performance.",
+      "Native mobile applications that enhance customer experience, streamline operations, and unlock new revenue streams.",
     gradient: "from-accent to-cyber-pink",
   },
   {
     icon: Users,
-    title: "CRM Implementation",
+    title: "Customer Relationship Management",
     description:
-      "Tailored CRM solutions with Salesforce, HubSpot, or custom-built workflows to streamline your operations.",
+      "Strategic CRM implementations that optimize sales processes, improve customer satisfaction, and accelerate growth.",
     gradient: "from-electric-blue to-primary",
   },
   {
     icon: Zap,
-    title: "API & Integrations",
+    title: "Business System Integration",
     description:
-      "Secure, scalable APIs and integrations with Stripe, Twilio, or custom endpoints to power your ecosystem.",
+      "Seamless integration of business systems to eliminate data silos, automate workflows, and reduce operational costs.",
     gradient: "from-neon-purple to-accent",
   },
   {
     icon: Database,
-    title: "Database Solutions",
+    title: "Data & Analytics Solutions",
     description:
-      "Robust database design, optimization, and management for scalability and performance.",
+      "Intelligent data management and analytics platforms that provide actionable insights for strategic decision-making.",
     gradient: "from-green-400 to-primary",
   },
   {
     icon: Globe,
-    title: "E-Commerce Development",
+    title: "E-Commerce & Marketplace",
     description:
-      "Custom online stores, marketplaces, and payment integrations built to drive conversions.",
+      "High-converting online stores and marketplaces designed to maximize sales, optimize customer journeys, and expand market presence.",
     gradient: "from-orange-400 to-pink-500",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & DevOps",
-    description:
-      "Seamless deployment pipelines, CI/CD, and cloud-native solutions for faster delivery.",
-    gradient: "from-sky-400 to-indigo-500",
-  },
-  {
-    icon: Settings,
-    title: "Product Engineering",
-    description:
-      "End-to-end product engineering services to take your idea from concept to launch.",
-    gradient: "from-yellow-400 to-red-500",
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity Solutions",
-    description:
-      "Protect your apps and infrastructure with enterprise-grade security and compliance.",
-    gradient: "from-rose-500 to-primary",
-  },
-  {
-    icon: Layers,
-    title: "UI/UX Design",
-    description:
-      "Pixel-perfect, user-centric interfaces designed to captivate and convert.",
-    gradient: "from-fuchsia-400 to-cyan-400",
   },
 ];
 
@@ -112,14 +84,13 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-gradient">
-              Comprehensive Digital Solutions
-            </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+            Business Solutions That
+            <span className="text-gradient"> Drive Growth</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From ideation to execution, our services are designed to deliver
-            measurable results.
+            Strategic digital solutions designed to deliver measurable ROI, operational efficiency, 
+            and sustainable competitive advantage for your business.
           </p>
         </motion.div>
 
