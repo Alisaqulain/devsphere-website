@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-import { 
-  Home, 
-  Users, 
-  Briefcase, 
-  FolderOpen, 
-  BookOpen, 
-  Code, 
+import {
+  Home,
+  Users,
+  Briefcase,
+  FolderOpen,
+  BookOpen,
+  Code,
   Mail,
   Menu,
   X,
-  Globe
+  Globe,
+  Instagram,
+  MessageCircle,
 } from "lucide-react";
 
 const navItems = [
@@ -34,10 +37,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 flex items-center gap-2 group">
-            <span className="text-xl sm:text-2xl font-extrabold text-gradient tracking-tight hidden sm:inline-block">
-              <Globe className="inline-block h-5 w-5 mr-1.5 text-primary" />
-              DevsSphere
-            </span>
+            <motion.img
+              src="/logoupdate.png"
+              alt="DevsSphere Solutions"
+              className="h-10 w-10 sm:h-12 sm:w-12 rounded-full shadow-md bg-transparent object-cover"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ scale: 1.08, rotate: -2 }}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -57,8 +65,8 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden md:block">
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center gap-3">
             <Link to="/contact">
               <Button variant="cta" size="lg" className="px-6 py-2.5 font-semibold">
                 Start Your Project
@@ -108,6 +116,9 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Floating Social Icons - bottom right (away from header) */}
+        
     </nav>
   );
 }
