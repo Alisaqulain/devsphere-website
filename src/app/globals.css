@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 40% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 40% 7%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 199 89% 48%;
+    --primary-foreground: 222 47% 4%;
+    --secondary: 222 30% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 222 25% 14%;
+    --muted-foreground: 215 20% 62%;
+    --accent: 187 85% 53%;
+    --accent-foreground: 222 47% 4%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 30% 16%;
+    --input: 222 30% 16%;
+    --ring: 199 89% 48%;
+    --radius: 1rem;
+    --cyan-glow: 187 85% 53%;
+    --blue-deep: 217 91% 60%;
+    --gradient-brand: linear-gradient(135deg, hsl(199 89% 48%), hsl(187 85% 53%), hsl(217 91% 60%));
+    --gradient-hero: radial-gradient(ellipse 80% 60% at 50% -10%, hsl(199 89% 48% / 0.18), transparent),
+      radial-gradient(ellipse 50% 40% at 90% 20%, hsl(187 85% 53% / 0.1), transparent),
+      hsl(222 47% 4%);
+    --glass-bg: hsl(222 40% 8% / 0.65);
+    --glass-border: hsl(199 89% 48% / 0.15);
+    --shadow-glow: 0 0 40px hsl(199 89% 48% / 0.25);
+    --shadow-card: 0 24px 80px hsl(222 47% 2% / 0.5);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+    color-scheme: dark;
+  }
+
+  select,
+  option {
+    color-scheme: dark;
+  }
+
+  select option {
+    background-color: hsl(var(--card));
+    color: hsl(var(--foreground));
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.35);
+    color: hsl(var(--foreground));
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--primary)), hsl(var(--accent)));
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.6), hsl(var(--accent) / 0.3), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .text-gradient {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-padding {
+    @apply py-20 sm:py-28 lg:py-32;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee 45s linear infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none;
+  }
+}
